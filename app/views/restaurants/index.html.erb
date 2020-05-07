@@ -1,6 +1,21 @@
 <h1>All the restaurants</h1>
-<ul>
+
+<br>
+
+<div class="cards">
+  <% food = {
+    'chinese' => 8848044,
+    'french' => 2714124,
+    'italian' => 2328715,
+    'japanese' => 4387281,
+    'belgian' => 3626122
+  } %>
+
   <% @restaurants.each do |restaurant| %>
-  <li><%= link_to restaurant.name, restaurant_path(restaurant)%></li>
+    <div class="card-category <%= restaurant.category %>-food"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url(https://source.unsplash.com/collection/<%= food[restaurant.category] %>)">
+      <%= link_to restaurant.name, restaurant_path(restaurant)%>
+    </div>
   <% end %>
-</ul>
+</div>
